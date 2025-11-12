@@ -1,0 +1,157 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pramble}[2025/10/29 v0.1 pramble package]
+
+%-----Aesthetic Packages-----
+\RequirePackage{geometry}
+
+%----------Packages----------
+\usepackage{amsmath}		%%
+\usepackage{amssymb}		%%
+\usepackage{amsthm}			%%
+\usepackage{amsrefs}		%%
+\usepackage{comment}		%% hidden text
+\usepackage{dsfont}			%%
+\usepackage{mathrsfs}		%%
+\usepackage{mathtools}		%%
+\usepackage{enumerate}		%% better enumerate
+\usepackage{graphicx}		%% pictures
+\usepackage{stmaryrd}		%% theoretical cs (mainly kept for idiom brackets)
+\usepackage{tikz-cd}		%% commutative diagrams
+\usepackage[mathcal]{eucal} %% somewhat better calligraphics
+
+%-------Commands----------------
+
+%% brutal efficiency
+\providecommand{\pc}{\providecommand}
+\pc{\nc}{\newcommand}
+\pc{\rc}{\renewcommand}
+
+%% blackboard bold math capitals
+\nc{\bbA}{\mathbb{A}} \nc{\bbB}{\mathbb{B}} \nc{\bbC}{\mathbb{C}} \nc{\bbD}{\mathbb{D}}
+\nc{\bbE}{\mathbb{E}} \nc{\bbF}{\mathbb{F}} \nc{\bbG}{\mathbb{G}} \nc{\bbH}{\mathbb{H}}
+\nc{\bbI}{\mathbb{I}} \nc{\bbJ}{\mathbb{J}} \nc{\bbK}{\mathbb{K}} \nc{\bbL}{\mathbb{L}}
+\nc{\bbM}{\mathbb{M}} \nc{\bbN}{\mathbb{N}} \nc{\bbO}{\mathbb{O}} \nc{\bbP}{\mathbb{P}}
+\nc{\bbQ}{\mathbb{Q}} \nc{\bbR}{\mathbb{R}} \nc{\bbS}{\mathbb{S}} \nc{\bbT}{\mathbb{T}}
+\nc{\bbU}{\mathbb{U}} \nc{\bbV}{\mathbb{V}} \nc{\bbW}{\mathbb{W}} \nc{\bbX}{\mathbb{X}}
+\nc{\bbY}{\mathbb{Y}} \nc{\bbZ}{\mathbb{Z}}
+
+%% calligraphic math capitals
+\nc{\calA}{\mathcal{A}} \nc{\calB}{\mathcal{B}} \nc{\calC}{\mathcal{C}} \nc{\calD}{\mathcal{D}}
+\nc{\calE}{\mathcal{E}} \nc{\calF}{\mathcal{F}} \nc{\calG}{\mathcal{G}} \nc{\calH}{\mathcal{H}}
+\nc{\calI}{\mathcal{I}} \nc{\calJ}{\mathcal{J}} \nc{\calK}{\mathcal{K}} \nc{\calL}{\mathcal{L}}
+\nc{\calM}{\mathcal{M}} \nc{\calN}{\mathcal{N}} \nc{\calO}{\mathcal{O}} \nc{\calP}{\mathcal{P}}
+\nc{\calQ}{\mathcal{Q}} \nc{\calR}{\mathcal{R}} \nc{\calS}{\mathcal{S}} \nc{\calT}{\mathcal{T}}
+\nc{\calU}{\mathcal{U}} \nc{\calV}{\mathcal{V}} \nc{\calW}{\mathcal{W}} \nc{\calX}{\mathcal{X}}
+\nc{\calY}{\mathcal{Y}} \nc{\calZ}{\mathcal{Z}}
+
+%% script math capitals
+\nc{\scrA}{\mathscr{A}} \nc{\scrB}{\mathscr{B}} \nc{\scrC}{\mathscr{C}} \nc{\scrD}{\mathscr{D}}
+\nc{\scrE}{\mathscr{E}} \nc{\scrF}{\mathscr{F}} \nc{\scrG}{\mathscr{G}} \nc{\scrH}{\mathscr{H}}
+\nc{\scrI}{\mathscr{I}} \nc{\scrJ}{\mathscr{J}} \nc{\scrK}{\mathscr{K}} \nc{\scrL}{\mathscr{L}}
+\nc{\scrM}{\mathscr{M}} \nc{\scrN}{\mathscr{N}} \nc{\scrO}{\mathscr{O}} \nc{\scrP}{\mathscr{P}}
+\nc{\scrQ}{\mathscr{Q}} \nc{\scrR}{\mathscr{R}} \nc{\scrS}{\mathscr{S}} \nc{\scrT}{\mathscr{T}}
+\nc{\scrU}{\mathscr{U}} \nc{\scrV}{\mathscr{V}} \nc{\scrW}{\mathscr{W}} \nc{\scrX}{\mathscr{X}}
+\nc{\scrY}{\mathscr{Y}} \nc{\scrZ}{\mathscr{Z}}
+
+%% Fraktur math capitals
+\nc{\frakA}{\mathfrak{A}} \nc{\frakB}{\mathfrak{B}} \nc{\frakC}{\mathfrak{C}} \nc{\frakD}{\mathfrak{D}}
+\nc{\frakE}{\mathfrak{E}} \nc{\frakF}{\mathfrak{F}} \nc{\frakG}{\mathfrak{G}} \nc{\frakH}{\mathfrak{H}}
+\nc{\frakI}{\mathfrak{I}} \nc{\frakJ}{\mathfrak{J}} \nc{\frakK}{\mathfrak{K}} \nc{\frakL}{\mathfrak{L}}
+\nc{\frakM}{\mathfrak{M}} \nc{\frakN}{\mathfrak{N}} \nc{\frakO}{\mathfrak{O}} \nc{\frakP}{\mathfrak{P}}
+\nc{\frakQ}{\mathfrak{Q}} \nc{\frakR}{\mathfrak{R}} \nc{\frakS}{\mathfrak{S}} \nc{\frakT}{\mathfrak{T}}
+\nc{\frakU}{\mathfrak{U}} \nc{\frakV}{\mathfrak{V}} \nc{\frakW}{\mathfrak{W}} \nc{\frakX}{\mathfrak{X}}
+\nc{\frakY}{\mathfrak{Y}} \nc{\frakZ}{\mathfrak{Z}}
+
+%% Better greek letters
+\rc{\phi}{\varphi}
+\pc{\ep} {\varepsilon}
+
+%% conventions
+\rc{\subset}{\subseteq}
+\rc{\supset}{\supseteq}
+\rc{\bar}   {\overline}
+\rc{\t}		{\text}
+
+%% idiosyncrasies
+\pc{\ot}   {\leftarrow}
+\pc{\tot}  {\leftrightarrow}
+\pc{\To}   {\Rightarrow}
+\pc{\Ot}   {\Leftarrow}
+\pc{\Tot}  {\Leftrightarrow}
+\pc{\inj}  {\hookrightarrow}
+\pc{\surj} {\twoheadrightarrow}
+\pc{\iso}  {\xrightarrow{\sim}}
+\pc{\jni}  {\hookleftarrow}
+\pc{\jrus} {\twoheadleftarrow}
+\pc{\osi}  {\xleftarrow{\sim}}
+\pc{\isosi}{\xleftrightarrow{\sim}}
+
+
+%% dmos
+\pc{\dmo}{\DeclareMathOperator}
+\dmo{\Gal}{Gal}
+\dmo{\Aut}{Aut}
+\dmo{\Inn}{Inn}
+\dmo{\supp}{supp}
+\dmo{\cof}{cof}
+
+\bibliographystyle{plain}
+
+\setlength\parindent{0pt}
+
+
+%-----Predefined environments-----
+% Helper to declare both numbered and unnumbered theorem-like environments
+\newcommand{\pramble@declaretheorems}[3]{%
+  \newtheorem{#1}{#3}[section]
+  \newtheorem{#2}{#3}[section]
+  \newtheorem*{#1*}{#3}%
+  \newtheorem*{#2*}{#3}%
+}
+
+\newcommand{\pramble@declaredefinitions}[3]{%
+  \theoremstyle{definition}
+  \newtheorem{#1}{#3}[section]
+  \newtheorem{#2}{#3}[section]
+  \newtheorem*{#1*}{#3}%
+  \newtheorem*{#2*}{#3}%
+  \theoremstyle{plain}
+}
+
+\pramble@declaredefinitions{definition}{definitions}{Definition}
+\pramble@declaredefinitions{remark}{remarks}{Remark}
+\pramble@declaretheorems{theorem}{theorems}{Theorem}
+\pramble@declaretheorems{lemma}{lemmas}{Lemma}
+\pramble@declaretheorems{proposition}{propositions}{Proposition}
+\pramble@declaretheorems{corollary}{corollaries}{Corollary}
+\pramble@declaretheorems{conjecture}{conjectures}{Conjecture}
+\pramble@declaretheorems{example}{examples}{Example}
+\pramble@declaretheorems{question}{questions}{Question}
+\pramble@declaretheorems{fact}{facts}{Fact}
+\pramble@declaretheorems{keyidea}{keyideas}{Key Idea}
+
+%-----Customized environments-----
+
+\renewenvironment{proof}[1][\proofname]{\par
+  % Inline-QED proof environment: puts the box immediately after the last word
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\itshape #1\@addpunct{.}]\ignorespaces
+}{%
+  % Append the QED symbol inline (no flush-right box)
+  \unskip\nobreak\hspace{.5em}\qedsymbol\endtrivlist\@endpefalse
+}
+
+%-----Parameters-----
+
+\setlength{\parindent}{0pt}
+
+\geometry{letterpaper,
+  top=1in,
+  bottom=1in,
+  left=0.75in,
+  right=0.75in
+}
+
+\makeatother
+\endinput
